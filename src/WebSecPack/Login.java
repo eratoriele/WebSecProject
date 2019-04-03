@@ -13,7 +13,8 @@ import java.util.ArrayList;
 @WebServlet(name = "Login")
 public class Login extends HttpServlet {
 
-    private String user;
+    private static String username;
+    private static String groups;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,7 +36,8 @@ public class Login extends HttpServlet {
             String hashedGivenStr = AppLayer.HashPassword.getHashedPassword(receivedSalt, pw);
 
             if (hashedGivenStr.equals(rs.getString("HashedPassword"))){
-                this.user = un;
+                username = un;
+                groups = rs.getString("Groups");
                 System.out.println("Logged in " + un);
                 userLoggedIn(request, response, con);
             }
@@ -47,7 +49,7 @@ public class Login extends HttpServlet {
 
     }
 
-    public void userLoggedIn(HttpServletRequest request, HttpServletResponse response, java.sql.Connection con) {
+    static public void userLoggedIn(HttpServletRequest request, HttpServletResponse response, java.sql.Connection con) {
 
         try {
             Statement select = con.createStatement();
@@ -75,4 +77,12 @@ public class Login extends HttpServlet {
 
     }
 
+    static public String getUsername() {
+        return username;
+
+    }
+
+    static public String getGroups() {
+        return groups;
+    }
 }

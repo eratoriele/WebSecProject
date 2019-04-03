@@ -15,7 +15,7 @@
     <form action="/WebSecProject_war_exploded/Login" method="post">
 
         Username: <input type="text" name="un" width="30" maxlength="20" minlength="8"/><br>
-        Password:               <input type="password" name="pw" width="15" maxlength="20" minlength="8"/> <br>
+        Password: <input type="password" name="pw" width="15" maxlength="20" minlength="8"/> <br>
         <input type="submit" value="Register"/>
 
     </form>

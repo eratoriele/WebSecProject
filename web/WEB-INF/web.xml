@@ -24,5 +24,15 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MakeAPost</servlet-name>
+        <servlet-class>WebSecPack.MakeAPost</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MakeAPost</servlet-name>
+        <url-pattern>/MakeAPost</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
