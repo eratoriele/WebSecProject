@@ -1,6 +1,6 @@
 package WebSecPack;
 
-import AppLayer.HashPassword;
+import AppLayer.CheckUnPw;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 
 @WebServlet(name = "Register")
 public class Register extends HttpServlet {
@@ -59,7 +58,4 @@ public class Register extends HttpServlet {
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

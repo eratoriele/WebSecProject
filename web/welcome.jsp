@@ -1,4 +1,5 @@
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="AppLayer.Post" %><%--
   Created by IntelliJ IDEA.
   User: Tayfun
   Date: 29.03.2019
@@ -8,16 +9,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Welcome!</title>
+    <title>Main Page</title>
 </head>
 <body>
-<br/><%ArrayList<String> headers=(ArrayList<String>) request.getAttribute("headers");
-    ArrayList<String> bodies=(ArrayList<String>) request.getAttribute("bodies");
+<br/><%ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("posts");
 
-    for(int i=0;i<headers.size();i++) {
+    for(int i=0;i<posts.size();i++) {
         %>
-        <h1> <%=headers.get(i)%> </h1>
-        <%=bodies.get(i)%> <br> <br> <hr>
+        <h2> <%=posts.get(i).getHeader()%> </h2>
+        <p style="font-size: 11px;color: blue"> Posted by: <%=posts.get(i).getPosted_by()%> </p>
+        <%=posts.get(i).getBody()%> <hr>
     <%} %>
 
 <form action="/WebSecProject_war_exploded/MakeAPost" method="post">

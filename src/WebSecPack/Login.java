@@ -1,5 +1,7 @@
 package WebSecPack;
 
+import AppLayer.Post;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,20 +55,19 @@ public class Login extends HttpServlet {
 
         try {
             Statement select = con.createStatement();
-            ResultSet rs = select.executeQuery("SELECT * FROM Posts");      // Later add WHERE to specify groups
+            ResultSet rs = select.executeQuery("SELECT * FROM Posts");      // TODO add WHERE to specify groups
 
-            ArrayList<String> headers = new ArrayList<String>();
-            ArrayList<String> bodies = new ArrayList<String>();
+            ArrayList<Post> al = new ArrayList<Post>();
 
             while (rs.next()) {
                 String header = rs.getString("PostHeader");
                 String body = rs.getString("PostBody");
+                String posted_by = rs.getString("Posted_by");
 
-                headers.add(header);
-                bodies.add(body);
+                Post temp = new Post(header, body, posted_by);
+                al.add(temp);
             }
-            request.setAttribute("headers", headers);
-            request.setAttribute("bodies", bodies);
+            request.setAttribute("posts", al);
 
             request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 
