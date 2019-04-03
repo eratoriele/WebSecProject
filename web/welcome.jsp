@@ -18,7 +18,14 @@
         %>
         <h2> <%=posts.get(i).getHeader()%> </h2>
         <p style="font-size: 11px;color: blue"> Posted by: <%=posts.get(i).getPosted_by()%> </p>
-        <%=posts.get(i).getBody()%> <hr>
+        <%=posts.get(i).getBody()%> <br><br>
+
+        <form action="/WebSecProject_war_exploded/Comments" method="post">           <!-- TODO change the url -->
+            <input type="submit" value="See comments">
+            <input type="hidden" name="i" value="<%=i%>">
+        </form>
+
+        <hr>
     <%} %>
 
 <form action="/WebSecProject_war_exploded/MakeAPost" method="post">

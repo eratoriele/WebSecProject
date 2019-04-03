@@ -17,6 +17,7 @@ public class Login extends HttpServlet {
 
     private static String username;
     private static String groups;
+    private static ArrayList<Post> posts;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -57,17 +58,18 @@ public class Login extends HttpServlet {
             Statement select = con.createStatement();
             ResultSet rs = select.executeQuery("SELECT * FROM Posts");      // TODO add WHERE to specify groups
 
-            ArrayList<Post> al = new ArrayList<Post>();
+            posts = new ArrayList<Post>();
 
             while (rs.next()) {
+                String PostID = rs.getString("PostID");
                 String header = rs.getString("PostHeader");
                 String body = rs.getString("PostBody");
                 String posted_by = rs.getString("Posted_by");
 
-                Post temp = new Post(header, body, posted_by);
-                al.add(temp);
+                Post temp = new Post(PostID, header, body, posted_by);
+                posts.add(temp);
             }
-            request.setAttribute("posts", al);
+            request.setAttribute("posts", posts);
 
             request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 
@@ -85,5 +87,9 @@ public class Login extends HttpServlet {
 
     static public String getGroups() {
         return groups;
+    }
+
+    static public ArrayList<Post> getPosts() {
+        return posts;
     }
 }
