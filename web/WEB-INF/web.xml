@@ -44,5 +44,15 @@
         <url-pattern>/Comments</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MakeAComment</servlet-name>
+        <servlet-class>WebSecPack.MakeAComment</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MakeAComment</servlet-name>
+        <url-pattern>/MakeAComment</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

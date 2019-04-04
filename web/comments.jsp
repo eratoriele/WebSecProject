@@ -32,6 +32,17 @@
         <hr>
     <%} %>
 
+<form action="/WebSecProject_war_exploded/MakeAComment" method="post">
+
+    <br> <br>
+    <h1>Create a new comment:</h1>
+
+    <textarea name="comment" style="width: 700px;height: 80px" maxlength="2000"></textarea> <br>
+
+    <input type="submit" value="Make a Comment"/>
+
+</form>
+
 
 </body>
 </html>

@@ -20,15 +20,15 @@
         <h1>How do you view an object?</h1>
         <input type="radio" name="q1" value="0"> Tree rather than a forest <br>
         <input type="radio" name="q1" value="1"> Forest rather than a tree <br>
-        <h1>Other question i dont remember rn 1</h1>
-        <input type="radio" name="q2" value="0"> Other question i dont remember rn 1 <br>
-        <input type="radio" name="q2" value="1"> Other question i dont remember rn 1 <br>
-        <h1>Other question i dont remember rn 2</h1>
-        <input type="radio" name="q3" value="0"> Other question i dont remember rn 2 <br>
-        <input type="radio" name="q3" value="1"> Other question i dont remember rn 2 <br>
-        <h1>Other question i dont remember rn 3</h1>
-        <input type="radio" name="q4" value="0"> Other question i dont remember rn 3 <br>
-        <input type="radio" name="q4" value="1"> Other question i dont remember rn 3 <br>
+        <h1>When making decisions, what is your train of thought?</h1>
+        <input type="radio" name="q2" value="0"> Logical <br>
+        <input type="radio" name="q2" value="1"> Emotional <br>
+        <h1>where does the energy flow?</h1>
+        <input type="radio" name="q3" value="0"> Outwards <br>
+        <input type="radio" name="q3" value="1"> Inwards <br>
+        <h1>How is your life style?</h1>
+        <input type="radio" name="q4" value="0"> Straightforward <br>
+        <input type="radio" name="q4" value="1"> Embracing <br>
 
         <input type="submit" value="Register"/>
     </form>

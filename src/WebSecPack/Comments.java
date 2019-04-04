@@ -17,6 +17,7 @@ import java.util.ArrayList;
 @WebServlet(name = "Comments")
 public class Comments extends HttpServlet {
 
+    static private String postToGetCommentsFrom;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -24,7 +25,7 @@ public class Comments extends HttpServlet {
 
         int index = Integer.parseInt((String)request.getAttribute("i"));
 
-        String postToGetCommentsFrom = Login.getPosts().get(index).getPostID();
+        postToGetCommentsFrom = Login.getPosts().get(index).getPostID();
 
         request.setAttribute("post", Login.getPosts().get(index));
 
@@ -56,4 +57,7 @@ public class Comments extends HttpServlet {
 
     }
 
+    public static String getPostToGetCommentsFrom() {
+        return postToGetCommentsFrom;
+    }
 }

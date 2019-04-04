@@ -20,7 +20,7 @@
         <p style="font-size: 11px;color: blue"> Posted by: <%=posts.get(i).getPosted_by()%> </p>
         <%=posts.get(i).getBody()%> <br><br>
 
-        <form action="/WebSecProject_war_exploded/Comments" method="post">           <!-- TODO change the url -->
+        <form action="/WebSecProject_war_exploded/Comments" method="post">
             <input type="submit" value="See comments">
             <input type="hidden" name="i" value="<%=i%>">
         </form>
