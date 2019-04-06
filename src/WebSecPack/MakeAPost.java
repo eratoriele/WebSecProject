@@ -1,5 +1,7 @@
 package WebSecPack;
 
+import AppLayer.CheckMalicousInput;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +24,11 @@ public class MakeAPost extends HttpServlet {
 
         try {
             java.sql.Connection con = AppLayer.Connection.Connection();
+            if(CheckMalicousInput.checkText(header) || CheckMalicousInput.checkText(body)){
+                request.setAttribute("BadInput", "Your input is seen as including malicous input." +
+                        "\nIf you think this is incorrect, please contact me");
+                Login.userLoggedIn(request, response, con);
+            }
             PreparedStatement insert = con.prepareStatement(
                     "INSERT INTO Posts VALUES('" +
                             Login.getUsername() + "', '" + Login.getGroups() + "', '" +
