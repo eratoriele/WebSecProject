@@ -12,6 +12,9 @@
     <title>Main Page</title>
 </head>
 <body>
+
+<p style="color:red;font-size: 30px">${BadInput}</p>
+
 <br/><%ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("posts");
 
     for(int i=0;i<posts.size();i++) {

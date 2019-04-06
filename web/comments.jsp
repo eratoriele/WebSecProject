@@ -19,7 +19,7 @@
 
     <h1> <%=post.getHeader()%> </h1>
     <p style="font-size: 12px;color: blue"> Posted by: <%=post.getPosted_by()%> </p>
-    <p style="font-size: 25px"><%=post.getBody()%></p> <br><br> <hr>
+    <p style="font-size: 25px"><%=post.getBody()%></p> <br> <hr>
 
 
 <br/><%

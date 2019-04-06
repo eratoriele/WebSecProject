@@ -1,5 +1,7 @@
 package WebSecPack;
 
+import AppLayer.CheckMalicousInput;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,14 +16,18 @@ public class MakeAComment extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // TODO Check the length and malicious text
-
         request.setAttribute("comment", request.getParameter("comment"));
 
         String comment = (String)request.getAttribute("comment");
 
         try {
             java.sql.Connection con = AppLayer.Connection.Connection();
+
+            if(CheckMalicousInput.checkText(comment)){
+                request.setAttribute("BadInput", "Your input is seen as including malicous input." +
+                        "\nIf you think this is incorrect, please contact me");
+                Login.userLoggedIn(request, response, con);
+            }
             PreparedStatement insert = con.prepareStatement(
                     "INSERT INTO Comments VALUES('" +
                             Comments.getPostToGetCommentsFrom() + "', '" + Login.getUsername() + "', '" + comment + "');");
