@@ -30,7 +30,7 @@ public class MakeAComment extends HttpServlet {
             }
             PreparedStatement insert = con.prepareStatement(
                     "INSERT INTO Comments VALUES('" +
-                            Comments.getPostToGetCommentsFrom() + "', '" + Login.getUsername() + "', '" + comment + "');");
+                            Comments.getPostToGetCommentsFrom() + "', '" + Login.getUsername() + "', '" + comment + "', '', '');");
             insert.executeUpdate();
             insert.close();
             Login.userLoggedIn(request, response, con);

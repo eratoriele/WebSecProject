@@ -32,7 +32,7 @@ public class MakeAPost extends HttpServlet {
             PreparedStatement insert = con.prepareStatement(
                     "INSERT INTO Posts VALUES('" +
                             Login.getUsername() + "', '" + Login.getGroups() + "', '" +
-                            header + "', '" + body + "');");
+                            header + "', '" + body + "', '', '');");
             insert.executeUpdate();
             insert.close();
             Login.userLoggedIn(request, response, con);

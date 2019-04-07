@@ -46,7 +46,7 @@ public class Register extends HttpServlet {
         try {
             java.sql.Connection con = AppLayer.Connection.Connection();
             PreparedStatement insert = con.prepareStatement("INSERT INTO Users VALUES ('" + un + "', '" + hashedpw + "', ?, '"
-                    + q1 + "," + q2 + "," + q3 + "," + q4 + "')");
+                    + q1 + "," + q2 + "," + q3 + "," + q4 + "', '', '')");
             insert.setBytes(1, salt);
             insert.executeUpdate();
             insert.close();
